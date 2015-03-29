@@ -118,6 +118,6 @@ public class CallLogMailer extends ActionBarActivity {
         }
     }
 
-    
-    }
+
+
 }
