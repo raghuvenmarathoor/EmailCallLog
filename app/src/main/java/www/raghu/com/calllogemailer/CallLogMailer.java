@@ -118,17 +118,6 @@ public class CallLogMailer extends ActionBarActivity {
         }
     }
 
-    public void onTest(View view) {
-        //GMailSender sender = new GMailSender("raghuvenmarathoor@gmail.com","jumbalakka");
-        try {
-            Toast sendingTst = Toast.makeText(this,"sending mail", Toast.LENGTH_SHORT);
-            sendingTst.show();
-           // sender.sendMail("test", "test", "raghuvenmarathoor@gmail.com", "raghuvenmarathoor@gmail.com");
-            new sendAsyncTaskTest().execute("test", "test", "raghuvenmarathoor@gmail.com", "raghuvenmarathoor@gmail.com");
-            //new EmailSenderAsyncTask().execute(new EmailSenderThread(this,"raghuvenmarathoor@gmail.com","raghuvenmarathoor@gmail.com","jumbalakka"));
-        } catch(Exception e) {
-            Toast excTst = Toast.makeText(this,"exception:" + e.getMessage(), Toast.LENGTH_SHORT);
-            excTst.show();
-        }
+    
     }
 }
