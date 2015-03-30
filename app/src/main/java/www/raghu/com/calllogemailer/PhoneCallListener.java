@@ -67,7 +67,7 @@ public class PhoneCallListener extends PhoneStateListener {
                 final String senderEmail = preferences.getString("sEmailId", "");
                 final String senderPassword = preferences.getString("sPassword", "");
                 if (recepientEmail.equals("") || senderEmail.equals("") || senderPassword.equals("")) {
-                   Toast tst = Toast.makeText(context, " no value provided in settings", Toast.LENGTH_SHORT);
+                   Toast tst = Toast.makeText(context, "no values provided in settings", Toast.LENGTH_SHORT);
                     tst.show();
                 }else {
                     Toast tst = Toast.makeText(context,"sending Email",Toast.LENGTH_SHORT);
