@@ -5,6 +5,9 @@ import android.database.Cursor;
 import android.provider.CallLog;
 import android.util.Log;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -32,6 +35,15 @@ public class EmailSenderThread implements Runnable {
         String lastCallnumber =    cur.getString(cur.getColumnIndex(android.provider.CallLog.Calls.NUMBER));
         String callName = cur.getString(cur.getColumnIndex(android.provider.CallLog.Calls.CACHED_NAME));
         String callDate = cur.getString(cur.getColumnIndex(android.provider.CallLog.Calls.DATE));
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
+
+        try {
+
+            date = dateFormat.parse(callDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         //Date callDayTime = new Date(Long.valueOf(callDate));
         String callType = cur.getString(cur.getColumnIndex(android.provider.CallLog.Calls.TYPE));
@@ -45,7 +57,7 @@ public class EmailSenderThread implements Runnable {
         String message = "\n CALL SUMMARY" +
                 "\nNUMBER :" + lastCallnumber
                 + "\nName :" + callName
-                + "\nDate :" + callDate
+                + "\nDate :" + date.toString()
                 + "\nCallType :" + callType;
 
         try {
